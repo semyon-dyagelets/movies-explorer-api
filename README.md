@@ -5,4 +5,4 @@ backend for diploma project
 Бэкенд для приложения дипломного проекта `MovieLibrary`.
 
 *Публичный адрес сервера https://84.252.134.87
-*Бэкенд https://api.semyon-dyagelets.nomoredomains.club
+*Бэкенд https://api.movielibrary.nomoredomains.club
