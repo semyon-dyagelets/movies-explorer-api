@@ -59,8 +59,8 @@ const deleteMovie = (req, res, next) => {
       if (!movie.owner.equals(req.user._id)) {
         throw new ForbiddenError('Можно удалять только свои фильмы');
       }
-      return Movie.findByIdAndRemove(movieId)
-        .then((deletedMovie) => res.send(deletedMovie));
+      return movie.remove()
+        .then(() => res.send({ message: 'Фильм успешно удален' }));
     })
     .catch((err) => {
       if (err.name === 'CastError' || err.name === 'ValidationError') {

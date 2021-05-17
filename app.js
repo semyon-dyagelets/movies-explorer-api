@@ -40,9 +40,6 @@ app.post('/signup', validateCreateUser, createUser);
 
 app.use(auth);
 app.use(router);
-app.use('/users', require('./routes/users'));
-app.use('/movies', require('./routes/movies'));
-
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
