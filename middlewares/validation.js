@@ -77,9 +77,9 @@ const validateCreateMovie = celebrate({
       .messages({
         'any.required': 'Поле "thumbnail" должно быть заполнено',
       }),
-    movieId: Joi.number().integer().required(),
-    nameRU: Joi.string().required().min(2).max(30),
-    nameEN: Joi.string().required().min(2).max(30),
+    movieId: Joi.number().required(),
+    nameRU: Joi.string().required(),
+    nameEN: Joi.string().required(),
   }),
   headers: Joi.object().keys({
     'content-type': Joi.string().valid('application/json').required(),
@@ -88,7 +88,7 @@ const validateCreateMovie = celebrate({
 
 const validateDeleteMovie = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.number().required().custom((value, helpers) => {
+    movieId: Joi.string().required().custom((value, helpers) => {
       if (ObjectId.isValid(value)) {
         return value;
       }
